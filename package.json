@@ -1,0 +1,25 @@
+{
+  "name": "spc_token",
+  "version": "1.0.0",
+  "description": "Ethereum based ERC20 Token",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/securitypluscloud/SPC_Token.git"
+  },
+  "keywords": [
+    "SPC"
+  ],
+  "author": "Satyam Agrawal",
+  "license": "ISC",
+  "homepage": "https://github.com/securitypluscloud/SPC_Token#readme",
+  "dependencies": {
+    "bignumber.js": "^4.1.0"
+  }
+}
