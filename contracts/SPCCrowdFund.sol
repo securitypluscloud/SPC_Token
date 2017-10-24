@@ -84,7 +84,7 @@ contract SPCCrowdFund {
     }
 
     // Attach the token contract, can only be done once     
-    function setTokenAddress(address _tokenAddress) external onlyOwner nonZeroAddress(_tokenAddress) {
+    function setTokenAddress(address _tokenAddress) external onlyFounders nonZeroAddress(_tokenAddress) {
         require(isTokenDeployed == false);
         token = SPCToken(_tokenAddress);
         isTokenDeployed = true;
@@ -98,12 +98,19 @@ contract SPCCrowdFund {
 
         if (remainingToken != 0) 
           token.transfer(founderMultiSigAddress, remainingToken); 
-          CrowdFundClosed(now);
-          return true; 
+        CrowdFundClosed(now);
+        return true; 
     }
 
     // Buy token function call only in duration of crowdfund active 
-    function buyTokens(address beneficiary) nonZeroEth tokenIsDeployed onlyPublic nonZeroAddress(beneficiary) payable returns(bool) {
+    function buyTokens(address beneficiary) 
+    nonZeroEth 
+    tokenIsDeployed 
+    onlyPublic 
+    nonZeroAddress(beneficiary) 
+    payable 
+    returns(bool) 
+    {
         require(msg.value >= minAmount);
 
         if (getState() == State.PreSale) {
