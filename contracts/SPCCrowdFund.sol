@@ -205,6 +205,29 @@ contract SPCCrowdFund {
         return getCurrentBonusRate();
     }
 
+    // GET functions
+
+    function getContractTimestamp() public constant returns ( 
+        uint256 _presaleStartDate, 
+        uint256 _presaleEndDate, 
+        uint256 _crowdsaleStartDate, 
+        uint256 _crowdsaleEndDate) 
+    {
+        return (preSaleStartTime, preSaleEndTime, crowdfundStartDate, crowdfundEndDate);
+    }
+
+    function getExchangeRate() public constant returns (uint256 _exchangeRateForETH, uint256 _exchangeRateForBTC) {
+        return (exchangeRateForETH, exchangeRateForBTC);
+    }
+
+    function getNoOfSoldToken() public constant returns (uint256 _tokenSoldInPresale , uint256 _tokenSoldInCrowdsale) {
+        return (tokenSoldInPresale, tokenSoldInCrowdsale);
+    }
+
+    function getWeiRaised() public constant returns (uint256 _totalWeiRaised) {
+        return totalWeiRaised;
+    }
+
     // Crowdfund entry
     // send ether to the contract address
     // With at least 200 000 gas
